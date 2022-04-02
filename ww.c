@@ -159,7 +159,7 @@ int wrap(unsigned width, int file_in, int file_out ){
 			}
 		}
 		else{
-			if(line > width){
+			if(charCounter > width){
 				write(file_out, str, wordLen);
 				write(file_out, line, 1);
 				wordLen = 0;
@@ -248,7 +248,7 @@ int main(int argc, char* argv[]){
                         
                     }
                     free(fname);
-
+                    free(newfname);
 
 
                 }
@@ -269,8 +269,9 @@ int main(int argc, char* argv[]){
             }
         }
     }
+    //printf("\n%d\n", fCheck);
     if(fCheck != 0){
-        perror("Error: the len of word is larger than width\n");
+        perror("Error: the len of a word is larger than width\n");
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
